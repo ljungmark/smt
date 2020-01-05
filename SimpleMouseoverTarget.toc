@@ -1,0 +1,7 @@
+## Interface: 30000
+## Version: 1.7
+## Author: Brodrick (aka Kirov)
+## Title: Simple Mouseover's Target
+## Notes: Show's a second tooltip showing the target of the unit your mouse is over.
+## SavedVariables: SMouseTarget_Saved
+SimpleMouseoverTarget.xml

@@ -1,0 +1,87 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/../../FrameXML/UI.xsd">
+
+  <Script file="SimpleMouseoverTarget.lua"/>
+
+  <Frame name="SMouseTarget" hidden="false" frameStrata="TOOLTIP" parent="UIParent">
+	<Size>
+		<AbsDimension x="128" y="46"/>
+	</Size>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="16"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="16"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5"/>
+			</BackgroundInsets>
+		</Backdrop>
+	<Anchors>
+		<Anchor point="BOTTOMRIGHT" relativeTo="GameTooltip" relativePoint="BOTTOMLEFT">
+			<Offset>
+				<AbsDimension x="0" y="0"/>
+			</Offset>
+		</Anchor>
+	</Anchors>
+	<Layers>
+		<Layer level="ARTWORK">
+			<FontString name="$parentTextLeft1" inherits="GameFontHighlight" hidden="true" justifyV="BOTTOM" justifyH="LEFT">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="10" y="-10"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</FontString>
+			<FontString name="$parentTextLeft2" inherits="GameFontHighlightSmall" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTextLeft1" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</FontString>
+		</Layer>
+	</Layers>
+	<Frames>
+		<StatusBar name="$parentStatusBar" hidden="false">
+			<Size>
+				<AbsDimension x="0" y="8"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+					<Offset>
+						<AbsDimension x="2" y="-1"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-2" y="-1"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnValueChanged>
+					HealthBar_OnValueChanged(self,value);
+				</OnValueChanged>
+			</Scripts>
+			<BarTexture name="$parentTexture" file="Interface\TargetingFrame\UI-TargetingFrame-BarFill"/>
+		</StatusBar>
+	</Frames>
+	<Scripts>
+		<OnLoad>
+			SMouseTarget_OnLoad(self)
+		</OnLoad>
+		<OnEvent>
+			SMouseTarget_OnEvent(self);
+		</OnEvent>
+		<OnUpdate>
+			SMouseTarget_OnUpdate(self);
+		</OnUpdate>
+	</Scripts>
+  </Frame>
+
+</Ui>
